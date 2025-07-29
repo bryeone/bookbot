@@ -3,11 +3,15 @@ from stats import get_book_text
 from stats import get_book_dictionary
 from stats import sort_dict
 from stats import sort_on
+import sys
 
 def main():
-    text = get_book_text("books/frankenstein.txt")
+    if len(sys.argv) < 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(None)
+    text = get_book_text(sys.argv[1])
     #print(text)
-    count = get_word_count("books/frankenstein.txt")
+    count = get_word_count(sys.argv[1])
     #print(f"{count} words found in the document")
     dictionary = get_book_dictionary(text)
     sorted_dictionary = sort_dict(dictionary)
