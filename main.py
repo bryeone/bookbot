@@ -8,7 +8,7 @@ import sys
 def main():
     if len(sys.argv) < 2:
         print("Usage: python3 main.py <path_to_book>")
-        sys.exit(None)
+        sys.exit(1)
     text = get_book_text(sys.argv[1])
     #print(text)
     count = get_word_count(sys.argv[1])
@@ -16,7 +16,7 @@ def main():
     dictionary = get_book_dictionary(text)
     sorted_dictionary = sort_dict(dictionary)
     print("============ BOOKBOT ============")
-    print("Analyzing book found at books/frankenstein.txt...")
+    print(f"Analyzing book found at {sys.argv[1]}...")
     print("----------- Word Count ----------")
     print(f"Found {count} total words")
     print("--------- Character Count -------")
